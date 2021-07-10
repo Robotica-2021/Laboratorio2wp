@@ -337,7 +337,9 @@ ul.c3{
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(to right, rgba(8, 8, 8, 0.164), rgba(8, 8, 8, 0.164)), url("../img/background.gif") center top no-repeat;
+  background-color: linear-gradient(to right, rgba(8, 8, 8, 0.164), rgba(8, 8, 8, 0.164));
+  background-image:  url("../img/background1.gif");
+  background-size: cover;
 }
 
 #hero::after {
