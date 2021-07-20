@@ -85,7 +85,7 @@ ul.c3{
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../img/backgg.jpg");;
+  background: linear-gradient( rgb(0, 0, 0), rgb(0, 0, 0) ), url("../img/backgg.jpg");;
   opacity: 1;
 
 }
@@ -95,7 +95,7 @@ ul.c3{
 }
 
 #header.header-scrolled {
-  background: linear-gradient( rgba(16, 16, 16, 0.5), rgba(14, 14, 14, 0.5) ), url("../img/backgg.jpg");;
+  background: linear-gradient( rgba(0, 0, 0, 0.534), rgba(14, 14, 14, 0.363) ), url("../img/backgg.jpg");;
   opacity: 0.95;
   height: 60px;
 }
@@ -123,7 +123,7 @@ ul.c3{
 
 #main {
   margin-top: 0px;
-  background: linear-gradient(to right, rgba(248, 244, 244, 0.63),  rgba(248, 244, 244, 0.555)), url("../img/yellow.jpg");
+  background: white;
 }
 
 /*--------------------------------------------------------------
@@ -181,7 +181,7 @@ ul.c3{
   opacity: 0;
   visibility: hidden;
   background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
 }
 
@@ -2077,7 +2077,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #d8ca064b;
+  background: #d8ca0600;
   padding: 0 0 30px 0;
   font-size: 14px;
 }
