@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Modelo Geométrico Directo</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+   <!-- Favicons -->
+   <link href="assets/img/robotic-arm1.png" rel="icon">
+   <link href="assets/img/robotic-arm1.png" rel="icon">
+ 
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,600,600i,700,700i|Barlow:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+ 
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>   <img src="assets/img/robotic-arm1.png" >Robot Industrial</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="robotYruta.html">Robot y ruta</a></li>
+          <li class="dropdown"><a class="active" href="#"><span>Modelos</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="Modelos.html">Iniciando Modelos</a></li>
+              <li><a href="directo.html">Modelo Geométrico Directo</a></li>
+              <li><a href="Inverso.html">Modelo Geométrico Inverso</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html">Modelo diferencial</a></li>
+          <li><a href="index.html">Integración</a></li>
+          <li><a href="asignatura.html">Asignatura</a></li>
+          <li><a href="https://github.com/APM2021-1" class="github"><i class="bx bxl-github"></i></a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+    <section class="breadcrumbs">
+    </section>
+    <div class="container" data-aos="fade-up">
+
+
+    <div class="section-title" data-aos="fade-up">
+      <h1>Modelo Geométrico Directo</h1>
+      <hr>
+    </div>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Raleway, Barlow; font-style: normal; font-size: 18px; font-weight: 400; text-align: left;  }
+      .CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+      .S1 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+      .S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+      .S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+      .S4 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Raleway, Barlow; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+      .S5 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Raleway, Barlow; font-style: normal; font-size: 18px; font-weight: 400; text-align: left;  }
+      .S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+      .S7 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px; overflow-x: hidden; line-height: 17.234px;  }
+      .variableValue { width: 100% !important; }
+      .embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+      .embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+      .matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+      .embeddedOutputsMatrixElement.inlineElement {}
+      .embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+      .embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+      .inlineElement .matrixElement {    max-height: 300px;}
+      .embeddedOutputsMatrixElement.rightPaneElement {}
+      .rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+      .rightPaneElement .matrixElement {    margin-bottom: -1px;}
+      .embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+      .embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+      .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+      .embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+      .eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+      .embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+      .variableElement {}
+      .embeddedOutputsVariableElement.inlineElement {}
+      .inlineElement .variableElement {}
+      .embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+      .rightPaneElement .variableElement {    padding-top: 2px;    padding-left: 9px;}
+      .variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+      /* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+      .matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+      .S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }</style></head><body><div class = rtcContent><div  class = 'S0'><span>Teniendo en cuenta los valores articulares listados a continuacion, se calculo por medio de diferentes metodoss los valores de posición y de orientación en coordenadas generalizadas del efector final.</span></div><div  class = 'S0'><span>Estos resultados se mostraran de la forma </span><span mathmlencoding="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;inline&quot;&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;C&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;q&lt;/mi&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;y&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;z&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;ϕ&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;roll&lt;/mi&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;θ&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;pitch&lt;/mi&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;ψ&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;yaw&lt;/mi&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;mo&gt;}&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/math&gt;" style="vertical-align:-6px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgoAAAAnCAYAAABubGCUAAActElEQVR4Xu3dBbAsu3EG4HaYwWFmdshBhx1mZmZmZnCYOXGYmRMHHXaYmeMwMzPU55pO2uMBaXZ295z7RlWnXr27M5KmJXX/jbpbHO2gwEGBgwIHBQ4KHBQ4KDBDgbsdlDkocFDgoMBBgYMCBwUOCsxR4AAKt2NvPFREPElEPEVE/GdE/HxE/MPtmPoxy4MCBwUOChwUuCIFHj4inj0iHiEi/iwifjsi/r1nPgdQ6KHW5Z8FEF40Ij4iIn4rIj47In4xIv4mIv778tM5RjyRAo8YES8YET8YEf96Yl+XfB1IfaKI+PGI+J9LDnzGsfC+54mIP4qIPzjjODe1a0LjhSLiARHxLzd1kjvM6+6DkPy+O4hn9p5He/3RIuLpIuINIuLeg0z5uoj4txYaH0ChhUrXecbavF1EfEBEfGhE3HewJlxnNseop1LgcSLi/Yd1/NVTO7vw+wDr60bEw0bEl9wB+/BhIuKtIuKvI+Ir7yDw07st7jEIjo8eaNH7/k1//mki4h0i4sMHTfqmz7d1fqecR3LldQY+hC4f33KeD6DQujSXf+7JIuLLI+Lvh8P8l5efwjHiThR4vIj44Ij4lIi4bSAhSYBXvPZgvrzNYAFIeKeI+OO7OEjIdX2GiHjjiLjTwALt+V0j4gPvMJCwx3l85Ij4tIh45uFMs1YvtgMorFHoer/b6F8VET8WEe9yh5sHr0fl9pEBNzEi/H2/NJisW97mbsCEreNXXFl7xSCeKiJ+fcbkmLEwvuv3Jj7Ot9BC7hcR39vy8Ts8g0c98eCyYXIFmL+jg/7jKQA7LxAR7xUR/7TD/K7dBfoAoveKiB+NiD/dMCE0ecqI+JgW7XJD/5d+hfXukyPisyLiBy49+AXHO+U8slTfZzgLP7w25y1AASIXGPHSEfG8EfFMEYGJYj6QCT8mpmjzeo4mdQTera3EQ/5+AIV+mp3rDefk/QYXECHFz9dq4cGEXyQi3u0KgongZ341vvP6YhHxIxHxehHxVwOx+C6dY8+86uDHfP2I+LIZYtqXgM87R8TvnovgQ7+PPwATQOF9IuLPB03o2SLijTYIAbT4xIh4jzNZdl5qEFDfHxHvOVgDz0Wix46I14iIVxvWVYDzaw18uHdMAucTBgD2Tb0v37DnH3qwJAD0H3WHAJ8lEm89j2cDCjWw7rki4jsj4jMGFIvp2GwC7/jTn3X4so8cfOz/dcM2022YzgEUbs4qPXpEfG5EvHpE9OzpJ4iIzxk0NQGMl26YpSBEApcgELzn3Fag8IQR4Wy/eUR80DDBJaAANLFwPUZEfEhEnOtsE+rMo2j/JkWwiy0Qr/M1Q5yBwN6WRoD4PoF7NOe9543/ASHmp7FarGpqLROfeebhIuIxB8uI9TgFKBjiuQcz/VtExJ+cMK9rv0px/dSIeJuNoOna8+8df+t5PAtQYMphGXjbwSQpKMtBnYqY5PP6goEpQf1f3Pvlx/MPosABFG7ORniWiPjaQTt/pYj45sapvVlEvPAQlHpNqxpmQkj6GwOF/JSnj4ivHvyWS0DB8+jxmRHxlhHxy4206HmMNZLZmOIBnH1Xefn5I+KHBmH2ChHx040dEyCyhgiQX2h8p/exFouCtXjZAfg8sHeAieeBvi/dASg8akR8+mCl+bwd5nWNLhIMsnoThHuDwWt8U8uYW87j7kCBW8EGerlhMzpofGFzzUGgnTiUmOQ1NKkW4t70Zw6gcHNWaAszTivEdw9C79pfk4xhDijkfmMNXAMKKVR+btCi90yZpJnT+N9+iMjm8qkKSQIF9OwBbbRurlCZRNcEbRSpjx1cUdy1p7Yte3NuTNYQYAfAbbXUnDr/Pd/PAHBK7f337PiG97XlPO4KFBLZO5CCm1r9ghDOJw0ax2pE5Q1fhGtN7wAK16L8g4/LxMvXSdCI9m8VNM8REfKUxSiI2bl22xMo+BYxA/cclIK/2+njauqW1EXWhJ8a9V2BwhqgyVcTtP3M4Draabrd3SQ/ffIT4gnGg+4JFMSqSBcV99BqqekmwhlfeMXBfeLM3dXkTu953A0oVGRvbd+7NecyIh5rCCj5uFuKTM+4l5u7PoBCM6nO+iAfvsA+wX7SrfihWxrt7A2H+gNTGQQtfez5zN5AAVP+sIh4zYj4tZ0mSoAyowMD8rvH1gTDGDcD7lqBQrqO3r3DbbTTJ/1fN7Q+QaAssqfGE9S57QkUUiPn9rltLmNuB/FxYltYtPcCr3vvg3P113sedwMKrAg0KBtcUI5Dee4o53MR8Tb2ewCF666aAD+a6HMOlgHn4OUH6wDT9VIJ1B6mlVlEGD7LwzdExJsOQWqi/N9xZJEQIKn4kQqP0h3tE+99fUR8y0Jmxd5AgcXEeKyMe5h50UymgCqkguleOSJ+YmILpGD000s2jv0SEfFFEbEW08CiQVjidZQdsVhPPdRdwA81Ka5S735zZntmpokA78yMATYJX/tn3KZAg0wUGQ0yVR4lIsSIKbsr9kuFweqKGQMFYyqog37y5FVyxcfFn6xVYEzLi2+7bT7+NL/7fkrt1PkU3JtnyzprMlTQR8xduqT0pbaETCVN0C7gJObB+sq6YXVxFp1RLi0WMO526Ziq5lK01et430GG6kdgM0XjN4Y4FYoHBUTzvoDpLyyBu9yAwLK9IE4HyJyLa+k9j7sABdG0NrYJagjmA/f0RV5XDNz80ZkBbQ6R3y2HlsB52oEZCZYSH8Jkzl+HsdjgmIf/Z07nh9wSle2wEZ42sewXQXD/OGjPNVoag7XpNWNt9ccSIPaf1L65ZlwHUhGdU9uTRsRbD6mCXAdy96VDSvvlW/bNovC/dQgOnCr/+0iDMMFY5mpgyBpgddAXYa9hTjIUrFs2BWNoStYPc1LHgGZK87auwAIG4jlBeoAFE/u47Q0UEsjKpthD+1SjghCWmSFwdEorrEGZmDqg0OLWYdnBlOfSB+0x4AAdja/Zuz87CB0WE+tFIGhjN2zWepBeaq8T0FNZD2vav36eb4jaB2wIHsIdaCFEnF+ZZgBV1oCofbLw2FP2qjgyQAOQI/iksyr4tcTDM3MDPQi5f954mPSjIqJaFX8xyA4Bku6pyWafcxHgJ98zcjHZ037jeuKuAczs96XgRGBKgToxcc7LUqtg01kn68Ztyu+fdMnAfpZG9DRf8tGc9Zf1UnybeBtncgoQilfxLF4KjPgbr48gXHtBIsEUcM55955HfMnZbYrzmaujwPT37cMGW0L3G/fRjX6tBnWdMtFk8Fv6IPShYszSpm4R6Da2w6fgCqaHodAMHDZaBS2DoAESgAj/T9j1ttS09YOxZkqdvmm12aDubxw0NEJcWuGWJl8c4sf0plpP7MzS+CmIgQGClpkakxPICyhgBNaEtgC4EOZM4Bizi1Zqw9gxEf3MgTxrrK8XHwSj9VPjQDYBgJKaj7EIziy7ivGM88Nzv2CQhERNJ8x57Q0UAEH+bDRYY8wt607AEoaafT8VeZ8AzO986K2+aN8ug8JZWgKTVSCbB8aNmaqOWvcHbZRmb1+4KwJ4VMgKUEjlagtQwHftG4LRX73PJRm7eVXmXoWe8yyGJl1dVVAJqgWYllIf3f/A5eNbagpty/qNn8m0Pf2ZD5Aj+DUbKw9FKHlUZqIABtIb0ZEG7szRttda8m3nZ0rw1/dZAoBbZw8gFDg7Lr7FXQWoyezJuVXZMA7Uz++xBvZFBoNScFgJne+xBSwtj+IL5sAxl4L+1twpveeRiwZf9W321mLxsTmgYOJMgJoNxtSJad4V2rWBgk1M+2EmpQWIUu+15NR0PswUeMBcMMw9q9FVy5PDWbVne4vlwaFnMl07vHN7i0mNZkKLwnCSFoQjOv3hDhUP9UUTsOdVHEzhP5cJsJYumUABwFsTonUMGp/vHKcdp+9e9bw583nVyKf8+3sDhZ5vXOMbqb1hiGPBUd9NHzqte46xTo3l2wnhNeFXayEQ2IRu9XXb07RDgdpTgMYlS1kJsBco5Fli0QIKf2f0ITRL5nHFpyrIT6BAGcCnVQ2tLWM6AIQ114v3Wmm1tqZ+r4Gn+JBKs1otYFbXsbqfAN7cDy1j5TkC9OeKhWU/NTMPXcxtnJ2HlznnFUSkeR+Prt9Tv3VsObCuQO+rFGWjukUSSLDKjt1tCfQI87WU1S3nkdU6y8oDxfbcpKyZAgoVtSPAWAC0LNrxTD8FIFJaLNRJYJ0SCFoLBEGzwAFkTvvZu6UmOGVas5d8h02+NYqaZgEM1JTcjI7HNGl81aS55fsyHsc4GEBqEMlkx8KrCvcpy1HPoW1JS6SpsjLwp85pxWtmzpsMFLaAcwCsteBTq/CrQGGO71VAllamZPxVMPYChRQYtDxWpKnbRcUrEKYsHMnQ19wZa3Man5dWWrWcszmgUPmT8bjTfE+lba+7uwcomHsdawzQc36qsFYBTaF4mcFdwnJQYz7yW8d8sFpWgJ8xCFToiuUV+Ki0MEfgEOhnuR0DxzH9e3hOfReQ4SYCin9lADMPUSdmCijkgPJptTnfSctGOZ7pp4ANwz8o8Alw2GJRqCYtvtxx0Zr+Wc2/kZoOf9vY3+Uwsk6xCOyZl83st5eFpEbac5Fk1b4ls2DGj9CEp9wqLa6HpOgaUGgplpR9ZdVC/z82je4NFHLetMStbqWcd81kGDPLuvPS/G5P09D4tltaq+uhBShURWps1VgTyktCPa24vS7LPYFCfj8AXs3nLTSeeibnNo4nqRa5ao7P51utH3XMHteD96r1wkVtFJIsHsZyIDZMzNBSbFUGv5o3eSnAeEphqjyyutWyQJR/w/fH7iH7nSBvAcRbzuNJFoUxUOjduFs31fHe/1MAcrU5bMDWGIUx/QRu8SHzezNJnitFr5qNx+WNWRu0NbNZz9oDJLQN0cDj2ICefjy7hPZrbMRYePH1CjDSpoKBWoIZW4FCFV5zxZKyr2r6HqcOngsotJh619al+t/nMhmqCZeVrKco0FowY86vBSgsAbetQCFjAwSs9fLbcwAF9Dj1Irpaf2TMg3LO9d/r8733qZhvTzBjrncV4NWC4dspEFNuQO+KV+H+oolz+eBv3IIqhk4BhWrtqzERhLuYCnFQ7h8RSJv7334XI8HN1RKj1mtROTlGwQSZv1Ri1Ho37hpTOH5vo0AGlArwmkv3WeoJWhRohvkxl7VstraZPeRTyejrAX/cIdBRJPZeteMFOuUd6ntc11yDmsZm5OqPrMJrzcSPOj3pkWsWhSq81kDfUjGivYFCjnVq9dUqeJfqC9SgsLlgx7n925oe2QIUjJG03MuiUMcVhDznepj6vj2BQiqJMkmmIvB7+EMKbgGDtVBZBQTVvVPrlYzPYsu4LemR436cZfwEvVObl+mB58pGqMHZ+W5eVAZkMNenS3XO9ZDvpfswkwN+cgBj4m7sJ6408S/pBuG6EjclmLLFGtt7HtP62JRiPOV6qAvpIxHtlFSZlkW+Sc9s8ZdOzf9UgHVKHYVxeutcCtBedE9QI2gysywwc1Hbe1kTpCA5TMDPXlfHZqQyOow18DxIY+HcEnyoPwychrhmzVkDClUwrZlkk1lMpQ7uDRRYrGhBrZkHc3utxWJSwRn/qYuL5K+3tqSxM7l0T0cLUKjAZq8YhermWopDOTdQyMh5VqIMPGyl8fi5CrSr+7oCgsqXqq++tZBWHTMDJKUarmUI1PfquN5jIZBVJHNobIXNypreMcd61foaUKhKCWCiroWsDllj0h4TCIsTMDbatAQx5rf0nsdd6igk+jGJqQCMuc1z98Ecwyx7W4sz3XagwG1hIzJnQvVQ77kDUms0OoRq7flcWUJ6GPrcvtozw6GOUX3eNSd/TmDUqHdMZKrEcPbPD8v1Q6gtWXNagEIFNEugL7XLKWGzJ1BIwYb5TaWW9QiXFqDApYKWgvm2xNuktqnQTQbOTc2xBSjUGIVxSvBW14O51PiSJUFJWFln5mrZMXtaFOwzaZnVX9+zlvXZdH36t5ohkEqFKP/MwqguwHG8QM/45g/k9Fy3TQHJeARBhQKXM914XLQpA7enMgHXgEL9Ru8LzlajJc9PBRKUc7+1BDGiz5bzuAtQIGAIFwFDGvOHyS+l6THJKATDj5oFJ3oW+Xj2wSmw1aIgX1xwGB++dBuFSqrg4EsD6LKGPgsSRrpWbXBpfSrzFLioshzT2tTd9r3j9WY49PSfh2Vs8q7ApwrmGvjIfynjYq4ITDIgGspSsbIWoMCNQ/uwrnP++aqV1qDMXLc9gULGbzC9z1mMCF1g1b5aykqp856KwajWsZ4y8uP9islzpy7FNrQAhVwv6eLjugSnAIXqL6ecVbN2fkta1RQWyvO7F1BIjVwNhTnw13O2an2HmgEy5aZ0FTr3xL0XSne3yIcUtvz+U26DuT6qW8szU+b4GkcyBRQSzC+5z6qVZRyQW4GEOfS4X1rO4/jbdwEKOoXiBVM4GLQnG1cRploExHMCOxBatSqpHBjZFKBACFqW2vCI9B9DRT9pQC3lRZc2CkHHDy9vX+QphKiYhzoEGL15Czxp8fW0bMhLPNMKFJIhy/f2joBCJmHIOKOLgTj0cVHKfYZnaP310i/RvQDh1ts+M2qbBYHZEmAYl4zdMl5PhkNv/zUHvd5ZkIe+mvozwJQQpnUBYms1KVjmaIdLwqkFKNhv6MBSB+TV6m+5F7Mf6zpVBGpPoOC8609U+JTlsF41z5qyVpkzLZhAVV2HtI4xBbfSfO5sysBRzwPAm6twV4HCFCBLTVMfsgLGQHgNKFTLUAqjLOHNzIxfZVVOPJewkBbrHAESzrWAOXw2wddeQIGQFWgnRmIK4PeerRpYm3EsU4HP5EnWpiBkpQ9ujT9KYQvozwUiTu2PGig7V5iquuTJL3s/ZR3lS2wBIOo3vJbFgGysILlaL9TEcE6rTKr8uierZ+08Tn3zbkBB56rrsRLY1JqPY55R3YwmoFSpQ05IGbhW3qqTQyDagM3IT+j9jBz33rjS3BZBnFqtKmkOHO1L9S0A4V47mdO2zGvrOy1AgeYOzDG1YbKa700ffj0AfO02JdNc/l4Zm3dPcVFkitvSYe8dLwWOCF3Mi7DAUOcsW739VwtBWs3QAQgQD5HBmX87CGd7VfokZrpWN18/6E+7YWGbYr6eWcqjrnsHE5SCJQqadlOBu3Q2tTeY5mlsY99qFYBzrsRajXUphz3jBRT2mbMyVm3SNyylPCadsmR8mt2NY03ct9BD87nzlm4jJt2py6a8V+nk/60bH7J7FnI+gCL60OrHSlN12Y7dEvqrufusfKxE+BWe6kzik1wjYsKmmjX2lwC1aqEpoMZurroWU3PKccxdBg/+oU7DuPWerbFPHuhRYp4SIY7AWO4KYUX4/GEwpnZnrrfAXJ2rM20vWePxzaNLvDjdCkv1Oer9R+hd5Z3vs1d8G6WLwiS9fQxKc49MrUUCCXUcWrN6Ws7j1HfvChQMYCLQoaAsApcA09RBf8BgDcB85syL3mdtACpqeVFoitDa4nOc+vA0v4haVTgHwnNBCGbGPGxsF7XcltYCFGgj0LhDIQcYGINk60HL+wFsXOug9Gz+TkugnWAm2lr63RLtkpHQtLIG+vj5nvGqBpP9jMs1y+zAVH0DptDTvz4xWnua8GVytR8BHX0SygQFxuZw8wdjBur+9zAy2pRDr8+qPQjq8u/8wc6GhvkYj9lUoNS4QqNnuAWBbP5dQJEJXIlb1obxhUHOHi2HjzhLC+c6s+IB/mjmbPvLs50X1HAtcCHVhhcI0iRQ5qq16ocPPe/naAGgvguNlOomRFUoBAqB/d/f6dDmvQGKgE0JkQoU8A2CzPnyHfYebVOl0TFYTcFXaUhYABP+8spj+41gBDYEDk71Z83UUBFY50yxvKoXAXDmhUPIYf/gaaxLrEyatUIv7kaKkz7GcwJOuIuA32xcW6ywgPhcPE3v2dJ3WsFYjVlDAFn0YDHA/1mAAcH7DUJ2j7i2dFW6l0PfU2doajslUF7KEMNvySuKqFRGcg+tuU2ANyCdABaQmCXex7wCgEILgGTKwg2MWE/Wr5bWch6n+tkdKLRMdukZTArRoEUuAC1REGLXSlVj1LrU79gXlP4f7wgg+7aCYDHfLKRz6vdc6v0WoLDnXBIMbs2fJkwx1HphzdL81sbjQiKIVJP0LFeGf6s3maa7Y6ro0Vr/dW55fwVEL52LFQ3zxIQJbRazpdsil76T5U2paW0ppmHPtTxXX2uCdmpcoIbQXwoiPNd85wQCAQuUjIFOS4zCJed6ibHSvUOYr10alfPpOVvOESB8z8GKgMc7w4QrqxTgDZj2gO81ulhHZ5gVVRBsSwNcKAetmnxLn+d+Zst5zDndKKCQpm9Mtmr0GbjDH14FE6vAPRqpy4IBLOTVoBk1jBlDkkzDzOEQ315Wi8ap7fLYJYECZkHA07LEdvQ25j4IubVM9JbxgEvWEa4r5jzggEuCpsUiUktEb+k/v3nN59tLG89jXLQQGki16Gzp61rvbPkGwEsdDdpRlsW+1vxzXBonq8UzDlp01TjvakBhiRZz67T1bNUCZoAz69w5G62ccpGAZGms1sDjc863t+8t57GOcaOAQpa6FWCXGn0NClsyU/cQLg84pOtaVSa4zHfGFKYuWenp/xrPZr4xpI9Oebf93nPpzSoYj99b3+DU8aw1SxSzJdMdn2a9w+KU/mvAUi0SswfN8+pdAnNLWe495rC1j5w7gMb83aL9nSuldes31Pcy3kPwGFdCxpvclYBC0kAckJibFhP9KWcrLb7cD+cuAJdrDSyIJ2EVXLprRgwedxQ5kWWc99hn5+pjy3msc8l4Pq4hSvQqiJ8quLTnx6V2lilmxhPNKbp2fAHPKeNmOhtfYAbjpDWDb16QCa2XRndbWh7K+w6bnVZ26uVH429ncgesBGUx0bUwCxG+/GwCebzXoylvGa9nvU7tvxaDOYfWY372IZ/73mvZQ6feZ2mDLDqtl4oJtuTbF2ALFI2D/nrHP9fzsoGAhLwh8q4EFKynvSg7qmV9Tj1bafHtLSh16tr7Tvwqb56l2LBM+h7uaa4R8SgsqS13Kpw6nz3e7z2PY5CcV9ZnldtVXnRuoJDpQFA7YS2wiq8Kkqch7xVgmIEofNYEq+DFRLDpF+bm2HqD4R6Lu6UPm1ldBJHOAoAEiDnYGFvL4d4y5tI7NZKZAOBbpHmfGqm89zy39pf7yPuX0nq2zvV4b38K1PS9vS1K+8/29vRYAVhPfYBzfGFmN9S+e6+0Pse8ztknOS/wmTubdRqfE7jN0tKiHD7IPH/OBr2J8KTlE3D8yQ8cIruBh70CDMU5CJYUOKVOuZaXXkBLfOcCaFpMpuekx9a+mXFF5RPU49iMrX1uec+BV4cBnYED/mfreqe0LAZzaa3nTqHfbf2OrGUgk4SFLAuQyYbhamGpPNelareVZj3zrgXMtpRn7hlr7VnKqmwma6yJcyM76jX2a33ctt9ZVWSBsPSpDSPdd9WKUD/y3EBhiqBMUKwL41rZt434x3zvLAok6iY0HCK55LcVWN5ZK3P+r8msF/+dalKuW+pmnH+mt3OEGqQu0+Fc8VYt1LHGYpxo1dzf979lafMt37j7M5cGCmnay/vOW32eu3/40eFBgYMCBwUOChwUOCiwToFLA4UsUSmIROpKk39k/TOOJw4KHBQ4KHBQ4KDAQYFzUOBSQIGPRGCjy0YUtRA8wtet4tgBFs6xskefBwUOChwUOChwUGAHClwKKOww1aOLgwIHBQ4KHBQ4KHBQ4NIUOIDCpSl+jHdQ4KDAQYGDAgcFbhEF/hfBQ7SgkH8VCAAAAABJRU5ErkJggg==" width="261" height="19.5" /></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >q1 = [0.5,0.2,0.4,0.5,0,1.5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >q2 = [-pi/2,0.3,0,pi/2,0.4,1.2];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >q3 = [0,1,-0.5,2,1,0.5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >q4 = [-1,-0.3,-pi/5,0.4,0.2,1];</span></span></div></div></div><h3  class = 'S4'><span>			</span></h3><div  class = 'S0'><div class="section-title" data-aos="fade-up">
+      <h2>MTH</h2>
+    </div><span>Hallando las MTH de cada eslabón de manera simbólica se procede a multiplicarlas entre sí para obtener la matriz MTH desde la base hasta el efector final en terminos de los valores articulares del robot.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >threshold = 1e-8;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >syms </span><span style="color: rgb(170, 4, 249);">theta1 theta2 theta3 theta4 theta5 theta6</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_01 = mapSymType(L(1).A(theta1),</span><span style="color: rgb(170, 4, 249);">'rational'</span><span >, @(x) piecewise(abs(x)&lt;=threshold, 0, x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_12 = mapSymType(L(2).A(theta2),</span><span style="color: rgb(170, 4, 249);">'rational'</span><span >, @(x) piecewise(abs(x)&lt;=threshold, 0, x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_23 = mapSymType(L(3).A(theta3),</span><span style="color: rgb(170, 4, 249);">'rational'</span><span >, @(x) piecewise(abs(x)&lt;=threshold, 0, x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_34 = mapSymType(L(4).A(theta4),</span><span style="color: rgb(170, 4, 249);">'rational'</span><span >, @(x) piecewise(abs(x)&lt;=threshold, 0, x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_45 = mapSymType(L(5).A(theta5),</span><span style="color: rgb(170, 4, 249);">'rational'</span><span >, @(x) piecewise(abs(x)&lt;=threshold, 0, x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_56 = mapSymType(L(6).A(theta6),</span><span style="color: rgb(170, 4, 249);">'rational'</span><span >, @(x) piecewise(abs(x)&lt;=threshold, 0, x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_6T = Robot.tool;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_0T = MTH_01*MTH_12*MTH_23*MTH_34*MTH_45*MTH_56*MTH_6T;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >MTH_0T = simplify(MTH_0T);</span></span></div></div></div><div  class = 'S5'><span>Teniendo en cuenta que se desea obtener la orientación del efector final en ángulos fijos </span><span mathmlencoding="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;inline&quot;&gt;&lt;mrow&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi&gt;ϕ&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;roll&lt;/mi&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;θ&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;pitch&lt;/mi&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;ψ&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;yaw&lt;/mi&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/math&gt;" style="vertical-align:-5px"><img src="data:image/png;base64,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" width="171" height="17.5" /></span><span> se tiene que el modelo de la MTH del efector final respecto a la base es el siguiente:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >syms </span><span style="color: rgb(170, 4, 249);">phi theta psi x y z</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >MTH_Robot = transl(x,y,z)*trotz(psi)*troty(theta)*trotx(phi)</span></span></div><div  class = 'S7'><div class="symbolicElement"><div class="embeddedOutputsVariableElement">MTH_Robot&nbsp;=&nbsp;</div><span class="MathEquation" mathmmlencoding="&amp;lt;math xmlns='http://www.w3.org/1998/Math/MathML' display='block' xmlns:mw='https://www.mathworks.com/MathML/extensions'&amp;gt;
+        &amp;lt;mrow mw:template='matrix' mw:dataCategory='structure'&amp;gt;
+          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+          &amp;lt;mtable&amp;gt;
+            &amp;lt;mtr&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='plus' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo&amp;gt;-&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='plus' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo&amp;gt;+&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mi&amp;gt;x&amp;lt;/mi&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+            &amp;lt;/mtr&amp;gt;
+            &amp;lt;mtr&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='plus' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo&amp;gt;+&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='plus' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo&amp;gt;-&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;psi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                              &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                              &amp;lt;mrow&amp;gt;
+                                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                                  &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                                &amp;lt;/mrow&amp;gt;
+                              &amp;lt;/mrow&amp;gt;
+                              &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mi&amp;gt;y&amp;lt;/mi&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+            &amp;lt;/mtr&amp;gt;
+            &amp;lt;mtr&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='plus' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mo&amp;gt;-&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;sin&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                  &amp;lt;mrow mw:template='times' mw:dataCategory='structure'&amp;gt;
+                    &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;varphi;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                      &amp;lt;mo form='infix' mw:dataCategory='static'&amp;gt;&amp;amp;InvisibleTimes;&amp;lt;/mo&amp;gt;
+                      &amp;lt;mrow mw:template='apply' mw:dataCategory='structure'&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                          &amp;lt;mi&amp;gt;cos&amp;lt;/mi&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                        &amp;lt;mrow mw:dataCategory='structure-part'&amp;gt;
+                          &amp;lt;mo form='prefix' mw:dataCategory='static'&amp;gt;(&amp;lt;/mo&amp;gt;
+                          &amp;lt;mrow&amp;gt;
+                            &amp;lt;mrow mw:dataCategory='placeholder'&amp;gt;
+                              &amp;lt;mi&amp;gt;&amp;amp;theta;&amp;lt;/mi&amp;gt;
+                            &amp;lt;/mrow&amp;gt;
+                          &amp;lt;/mrow&amp;gt;
+                          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+                        &amp;lt;/mrow&amp;gt;
+                      &amp;lt;/mrow&amp;gt;
+                    &amp;lt;/mrow&amp;gt;
+                  &amp;lt;/mrow&amp;gt;
+                &amp;lt;/mrow&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mi&amp;gt;z&amp;lt;/mi&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+            &amp;lt;/mtr&amp;gt;
+            &amp;lt;mtr&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mn&amp;gt;0&amp;lt;/mn&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mn&amp;gt;0&amp;lt;/mn&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mn&amp;gt;0&amp;lt;/mn&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+              &amp;lt;mtd&amp;gt;
+                &amp;lt;mn&amp;gt;1&amp;lt;/mn&amp;gt;
+              &amp;lt;/mtd&amp;gt;
+            &amp;lt;/mtr&amp;gt;
+          &amp;lt;/mtable&amp;gt;
+          &amp;lt;mo form='postfix' mw:dataCategory='static'&amp;gt;)&amp;lt;/mo&amp;gt;
+        &amp;lt;/mrow&amp;gt;
+      &amp;lt;/math&amp;gt;
+      " style="vertical-align: -35px;"><img src="data:image/png;base64,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" width="608" height="81"></span></div></div></div></div><div  class = 'S5'><span>Con los elementos de la matriz anterior es posible despejar las variables de posición y orientación del efector final así:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >x = simplify(MTH_0T(1,4));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = simplify(MTH_0T(2,4));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = simplify(MTH_0T(3,4));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >theta = simplify(asin(-MTH_0T(3,1)));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >phi = simplify(atan2(MTH_0T(3,2),MTH_0T(3,3)));</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >psi = atan2(MTH_0T(2,1),MTH_0T(1,1));</span></span></div></div></div><div  class = 'S5'><span>De esta manera, basta con hallar el valor númerico de la matriz MTH del efector final a la base con los valores articulares dados y hallar los valores de posición y orientación en cada configuración.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = MTH_Robot(1,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = MTH_Robot(2,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = MTH_Robot(3,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >theta = asin(-MTH_Robot(3,1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q1= [x;y;z;phi;theta;psi].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="322AB96D" data-testid="output_1" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q1 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  458.8531  250.6726  967.7821   -0.9258    0.3506   -0.8179
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q2));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = MTH_Robot(1,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = MTH_Robot(2,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = MTH_Robot(3,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >theta = asin(-MTH_Robot(3,1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q2= [x;y;z;phi;theta;psi].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="D2E1C943" data-testid="output_2" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q2 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  -31.1535 -554.2512  815.2438   -0.7204    1.2002   -2.7428
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = MTH_Robot(1,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = MTH_Robot(2,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = MTH_Robot(3,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >theta = asin(-MTH_Robot(3,1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q3= [x;y;z;phi;theta;psi].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="010107AF" data-testid="output_3" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q3 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  322.7975  -61.2118  737.4779   -1.6874    1.1427   -2.5496
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q4));	</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = MTH_Robot(1,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = MTH_Robot(2,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = MTH_Robot(3,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >theta = asin(-MTH_Robot(3,1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q4= [x;y;z;phi;theta;psi].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="4FA03F1E" data-testid="output_4" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q4 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  305.1279 -486.6637  246.2073   -2.3274   -0.1829   -2.5058
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div></div><div class="section-title" data-aos="fade-up">
+        <h2>Peter Corke </h2>
+      </div>
+      
+      <div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >PMTH=Robot.fkine(q1);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q1=[transl(PMTH);flip(tr2rpy(PMTH,</span><span style="color: rgb(170, 4, 249);">'zyx'</span><span >)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="D4D6CD83" data-testid="output_5" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q1 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  458.8531  250.6726  967.7821   -0.9258    0.3506   -0.8179
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >PMTH=Robot.fkine(q2);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q2=[transl(PMTH);flip(tr2rpy(PMTH,</span><span style="color: rgb(170, 4, 249);">'zyx'</span><span >)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="7D027669" data-testid="output_6" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q2 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  -31.1535 -554.2512  815.2438   -0.7204    1.2002   -2.7428
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >PMTH=Robot.fkine(q3);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q3=[transl(PMTH);flip(tr2rpy(PMTH,</span><span style="color: rgb(170, 4, 249);">'zyx'</span><span >)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="D187F411" data-testid="output_7" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q3 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  322.7975  -61.2118  737.4779   -1.6874    1.1427   -2.5496
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >PMTH=Robot.fkine(q4);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q4=[transl(PMTH);flip(tr2rpy(PMTH,</span><span style="color: rgb(170, 4, 249);">'zyx'</span><span >)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="C7A41B82" data-testid="output_8" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q4 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  305.1279 -486.6637  246.2073   -2.3274   -0.1829   -2.5058
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div></div>
+      <div class="section-title" data-aos="fade-up">
+        <h2>Robotics Systems Toolbox  </h2>
+      </div>
+      
+      <div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >c1 = num2cell(q1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >c2 = num2cell(q2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >c3 = num2cell(q3);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >c4 = num2cell(q4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >s = homeConfiguration(robotRST);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >[s.JointPosition] = c1{:};</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tform = getTransform(robotRST,s,</span><span style="color: rgb(170, 4, 249);">'endeffector'</span><span >,</span><span style="color: rgb(170, 4, 249);">'base'</span><span >);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q1=[tform2trvec(tform)';flip(tform2eul(tform)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="BF5478B2" data-testid="output_9" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q1 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  458.8531  250.6726  967.7821   -0.9258    0.3506   -0.8179
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >[s.JointPosition] = c2{:};</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tform = getTransform(robotRST,s,</span><span style="color: rgb(170, 4, 249);">'endeffector'</span><span >,</span><span style="color: rgb(170, 4, 249);">'base'</span><span >);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q2=[tform2trvec(tform)';flip(tform2eul(tform)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="1687B79A" data-testid="output_10" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q2 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  -31.1535 -554.2512  815.2438   -0.7204    1.2002   -2.7428
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >[s.JointPosition] = c3{:};</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tform = getTransform(robotRST,s,</span><span style="color: rgb(170, 4, 249);">'endeffector'</span><span >,</span><span style="color: rgb(170, 4, 249);">'base'</span><span >);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q3=[tform2trvec(tform)';flip(tform2eul(tform)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="7A2FB7A9" data-testid="output_11" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q3 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  322.7975  -61.2118  737.4779   -1.6874    1.1427   -2.5496
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >[s.JointPosition] = c4{:};</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tform = getTransform(robotRST,s,</span><span style="color: rgb(170, 4, 249);">'endeffector'</span><span >,</span><span style="color: rgb(170, 4, 249);">'base'</span><span >);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >C_q4=[tform2trvec(tform)';flip(tform2eul(tform)')].'</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="7E12BF5B" data-testid="output_12" data-width="962" style="width: 992px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 962px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C_q4 = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">1×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  305.1279 -486.6637  246.2073   -2.3274   -0.1829   -2.5058
+      </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div></div>
+      <div class="section-title" data-aos="fade-up">
+        <h2>Comparación</h2>
+      </div>
+      
+      <div  class = 'S0'><span>Como se mostró anteriormente se llega a los mismos resultados utilizando los tres métodos implementados de cinemática directa, es importante mencionar que para el caso del Toolbox de Peter Corke se debe configurar la convención de las rotaciones en angulos fijos con el valor 'zyx'. Esta es la configuración por defecto en el Robotics Systems Toolbox, por lo que se omite este parámetro. En las funciones de ambos Toolbox se debe invertir el orden del vector para poder expresar la orientación primero respecto al eje "x", luego el eje "y" y finalmente el eje "z".					</span></div>
+      <br>
+      <!-- 
+      ##### SOURCE BEGIN #####
+      %% 
+      % Teniendo en cuenta los valores articulares listados a continuacion, se calculo 
+      % por medio de diferentes metodoss los valores de posición y de orientación en 
+      % coordenadas generalizadas del efector final.
+      % 
+      % Estos resultados se mostraran de la forma $C_{q-n} =\left\lbrace x,y,z,\phi 
+      % \left(\textrm{roll}\right),\theta \;\left(\textrm{pitch}\right),\psi \;\left(\textrm{yaw}\right)\right\rbrace$
+      
+      q1 = [0.5,0.2,0.4,0.5,0,1.5];
+      q2 = [-pi/2,0.3,0,pi/2,0.4,1.2];
+      q3 = [0,1,-0.5,2,1,0.5];
+      q4 = [-1,-0.3,-pi/5,0.4,0.2,1];
+      % 			
+      % Hallando las MTH de cada eslabón de manera simbólica se procede a multiplicarlas 
+      % entre sí para obtener la matriz MTH desde la base hasta el efector final en 
+      % terminos de los valores articulares del robot.
+      
+      threshold = 1e-8;
+      syms theta1 theta2 theta3 theta4 theta5 theta6
+      MTH_01 = mapSymType(L(1).A(theta1),'rational', @(x) piecewise(abs(x)<=threshold, 0, x));
+      MTH_12 = mapSymType(L(2).A(theta2),'rational', @(x) piecewise(abs(x)<=threshold, 0, x));
+      MTH_23 = mapSymType(L(3).A(theta3),'rational', @(x) piecewise(abs(x)<=threshold, 0, x));
+      MTH_34 = mapSymType(L(4).A(theta4),'rational', @(x) piecewise(abs(x)<=threshold, 0, x));
+      MTH_45 = mapSymType(L(5).A(theta5),'rational', @(x) piecewise(abs(x)<=threshold, 0, x));
+      MTH_56 = mapSymType(L(6).A(theta6),'rational', @(x) piecewise(abs(x)<=threshold, 0, x));
+      MTH_6T = Robot.tool;
+      MTH_0T = MTH_01*MTH_12*MTH_23*MTH_34*MTH_45*MTH_56*MTH_6T;
+      MTH_0T = simplify(MTH_0T);
+      %% 
+      % Teniendo en cuenta que se desea obtener la orientación del efector final en 
+      % ángulos fijos $\left(\phi \left(\textrm{roll}\right),\theta \;\left(\textrm{pitch}\right),\psi 
+      % \;\left(\textrm{yaw}\right)\right)$ se tiene que el modelo de la MTH del efector 
+      % final respecto a la base es el siguiente:
+      
+      syms phi theta psi x y z
+      MTH_Robot = transl(x,y,z)*trotz(psi)*troty(theta)*trotx(phi)
+      %% 
+      % Con los elementos de la matriz anterior es posible despejar las variables 
+      % de posición y orientación del efector final así:
+      
+      x = simplify(MTH_0T(1,4));
+      y = simplify(MTH_0T(2,4));
+      z = simplify(MTH_0T(3,4));
+      theta = simplify(asin(-MTH_0T(3,1)));
+      phi = simplify(atan2(MTH_0T(3,2),MTH_0T(3,3)));
+      psi = atan2(MTH_0T(2,1),MTH_0T(1,1));
+      %% 
+      % De esta manera, basta con hallar el valor númerico de la matriz MTH del efector 
+      % final a la base con los valores articulares dados y hallar los valores de posición 
+      % y orientación en cada configuración.
+      
+      MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q1));
+      x = MTH_Robot(1,4);
+      y = MTH_Robot(2,4);
+      z = MTH_Robot(3,4);
+      theta = asin(-MTH_Robot(3,1));
+      phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));
+      psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));
+      C_q1= [x;y;z;phi;theta;psi].'
+      
+      MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q2));
+      x = MTH_Robot(1,4);
+      y = MTH_Robot(2,4);
+      z = MTH_Robot(3,4);
+      theta = asin(-MTH_Robot(3,1));
+      phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));
+      psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));
+      C_q2= [x;y;z;phi;theta;psi].'
+      
+      MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q3));
+      x = MTH_Robot(1,4);
+      y = MTH_Robot(2,4);
+      z = MTH_Robot(3,4);
+      theta = asin(-MTH_Robot(3,1));
+      phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));
+      psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));
+      C_q3= [x;y;z;phi;theta;psi].'
+      
+      MTH_Robot = double(subs(MTH_0T,[theta1 theta2 theta3 theta4 theta5 theta6],q4));	
+      x = MTH_Robot(1,4);
+      y = MTH_Robot(2,4);
+      z = MTH_Robot(3,4);
+      theta = asin(-MTH_Robot(3,1));
+      phi = atan2(MTH_Robot(3,2),MTH_Robot(3,3));
+      psi = atan2(MTH_Robot(2,1),MTH_Robot(1,1));
+      C_q4= [x;y;z;phi;theta;psi].'
+      %% 
+      % *Peter corke*
+      
+      PMTH=Robot.fkine(q1);
+      C_q1=[transl(PMTH);flip(tr2rpy(PMTH,'zyx')')].'
+      PMTH=Robot.fkine(q2);
+      C_q2=[transl(PMTH);flip(tr2rpy(PMTH,'zyx')')].'
+      PMTH=Robot.fkine(q3);
+      C_q3=[transl(PMTH);flip(tr2rpy(PMTH,'zyx')')].'
+      PMTH=Robot.fkine(q4);
+      C_q4=[transl(PMTH);flip(tr2rpy(PMTH,'zyx')')].'
+      %% 
+      % *RST*
+      
+      c1 = num2cell(q1);
+      c2 = num2cell(q2);
+      c3 = num2cell(q3);
+      c4 = num2cell(q4);
+      s = homeConfiguration(robotRST);
+      
+      [s.JointPosition] = c1{:};
+      tform = getTransform(robotRST,s,'endeffector','base');
+      C_q1=[tform2trvec(tform)';flip(tform2eul(tform)')].'
+      
+      [s.JointPosition] = c2{:};
+      tform = getTransform(robotRST,s,'endeffector','base');
+      C_q2=[tform2trvec(tform)';flip(tform2eul(tform)')].'
+      
+      [s.JointPosition] = c3{:};
+      tform = getTransform(robotRST,s,'endeffector','base');
+      C_q3=[tform2trvec(tform)';flip(tform2eul(tform)')].'
+      
+      [s.JointPosition] = c4{:};
+      tform = getTransform(robotRST,s,'endeffector','base');
+      C_q4=[tform2trvec(tform)';flip(tform2eul(tform)')].'
+      %% 
+      % 4. Compare los metodos. 
+      % 
+      % Como se mostró anteriormente se llega a los mismos resultados utilizando los 
+      % tres métodos implementados de cinemática directa, es importante mencionar que 
+      % para el caso del Toolbox de Peter Corke se debe configurar la convención de 
+      % las rotaciones en angulos fijos con el valor 'zyx'. Esta es la configuración 
+      % por defecto en el Robotics Systems Toolbox, por lo que se omite este parámetro. 
+      % En las funciones de ambos Toolbox se debe invertir el orden del vector para 
+      % poder expresar la orientación primero respecto al eje "x", luego el eje "y" 
+      % y finalmente el eje "z".					
+      % 
+      % 5. Elija uno de los metodos anteriormente usados y desarrolle una GUI que 
+      % permita mover cada articulacion mediante controles tipo Slider, visualizar el 
+      % robot y la posicion del efector final. 
+      % 
+      % 
+      % 
+      % 
+      % 
+      % 6. En el informe incluya capturas de pantalla verificando las posiciones EF 
+      % y las articulaciones.
+      ##### SOURCE END #####
+      -->
+      </div></body>
+
+
+    
+  </div>
+
+  <div class="section-title" data-aos="fade-up">
+    <h2>GUI</h2>
+    <hr>
+  </div>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q1</a></h5>
+              <img src="assets/img/g1.jpeg" alt="...">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q2</a></h5>
+              <img src="assets/img/g2.jpeg" alt="...">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q3</a></h5>
+              <img src="assets/img/g3.jpeg" alt="...">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q4</a></h5>
+              <img src="assets/img/g4.jpeg" alt="...">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  </main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+</footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/purecounter/purecounter.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
