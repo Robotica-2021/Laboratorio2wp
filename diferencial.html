@@ -67,65 +67,138 @@
   <main id="main">
     <section class="breadcrumbs">
     </section>
-    <div class="container" data-aos="fade-up"></div>
-    <div class="section-title" data-aos="fade-up">
-      <h1>Modelo diferencial</h1>
-      <hr>
 
+    <div class="container" data-aos="fade-up">
 
-
+      <div class="section-title" data-aos="fade-up">
+        <h1>Iniciando Modelos</h1>
+        <hr>
+      </div>
+    <div data-aos="fade-up">
+      <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 0px; } .S0 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Raleway, Barlow; font-style: normal; font-size: 18px; font-weight: 400; text-align: left;  }
+        .CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+        .S1 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+        .S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+        .S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }
+        .S4 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px; overflow-x: hidden; line-height: 17.234px;  }
+        .variableValue { width: 100% !important; }
+        .embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+        .embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+        .matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+        .embeddedOutputsMatrixElement.inlineElement {}
+        .embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+        .embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+        .inlineElement .matrixElement {    max-height: 300px;}
+        .embeddedOutputsMatrixElement.rightPaneElement {}
+        .rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+        .rightPaneElement .matrixElement {    margin-bottom: -1px;}
+        .embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+        .embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+        .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+        .embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+        .eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+        .embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+        .variableElement {}
+        .embeddedOutputsVariableElement.inlineElement {}
+        .inlineElement .variableElement {}
+        .embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+        .rightPaneElement .variableElement {    padding-top: 2px;    padding-left: 9px;}
+        .variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+        /* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+        .matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+        .S5 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Raleway, Barlow; font-style: normal; font-size: 18px; font-weight: 400; text-align: left;  }
+        .S6 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Raleway, Barlow; font-style: normal; font-size: 18px; font-weight: 400; text-align: center;  }
+        .S7 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 18px;  }</style></head><body><div class = rtcContent><div  class = 'S0'><span>Considerando que para que el robot ejecute los movimientos, se desea establecer una relación entre las velocidades del efector final y las articulaciones, En un primer lugar con los valores numéricos de longitudes y desplazamientos de los eslabones del robot asignado se obtuvo el Jacobiano como una matriz de valores númericos:</span></div><div  class = 'S0'><span>Para obtener la matriz jacobiana de forma numérica se utilizaron las MTH que representan al robot en la posición de home, donde todas las articulaciónes tienen el valor de 0.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >MTH01 = L(1).A(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH12 = L(2).A(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH23 = L(3).A(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH34 = L(4).A(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH45 = L(5).A(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH56 = L(6).A(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH6T = Robot.tool;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH02 = MTH01*MTH12;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH03 = MTH02*MTH23;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH04 = MTH03*MTH34;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH05 = MTH04*MTH45;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH06 = MTH05*MTH56;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH0T = MTH06*MTH6T;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J1 = [cross(MTH01(1:3,3),(MTH0T(1:3,4)-MTH01(1:3,4)));MTH01(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J2 = [cross(MTH02(1:3,3),(MTH0T(1:3,4)-MTH02(1:3,4)));MTH02(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J3 = [cross(MTH03(1:3,3),(MTH0T(1:3,4)-MTH03(1:3,4)));MTH03(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J4 = [cross(MTH04(1:3,3),(MTH0T(1:3,4)-MTH04(1:3,4)));MTH04(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J5 = [cross(MTH05(1:3,3),(MTH0T(1:3,4)-MTH05(1:3,4)));MTH05(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J6 = [cross(MTH06(1:3,3),(MTH0T(1:3,4)-MTH06(1:3,4)));MTH06(1:3,3)];</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >J = [J1,J2,J3,J4,J5,J6]</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="CCB140CC" data-scroll-top="null" data-scroll-left="null" data-width="1246" data-testid="output_0" style="width: 1276px; opacity: 1; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1246px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">J = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">6×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:6,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    0.0000 -325.0000    0.0000   -0.0000    0.0000   -0.0000
+          680.0000    0.0000    0.0000   -0.0000    0.0000   -0.0000
+                 0  530.0000  530.0000    0.0000   80.0000    0.0000
+                 0         0         0    1.0000         0    1.0000
+                 0   -1.0000   -1.0000   -0.0000   -1.0000   -0.0000
+            1.0000    0.0000    0.0000   -0.0000    0.0000   -0.0000
+        </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div></div><div  class = 'S5'><span>Utilizando la primera postura propuesta en la sección de cinemática inversa se procede a calcular el jacobiano con los valores articulares encontrados. Posteriormente, se hallan las velocidades articulares a partir de las velocidades lineales y angulares propuestas así:</span></div><div  class = 'S6'><span mathmlencoding="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mrow&gt;&lt;mover accent=&quot;true&quot;&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;q&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mo&gt;˙&lt;/mo&gt;&lt;/mrow&gt;&lt;/mover&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msup&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;J&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;V&lt;/mi&gt;&lt;/mrow&gt;&lt;/math&gt;" style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAFm0lEQVR4Xu2aR4gtRRSGv2eOoJgzulERdSGiIibMC7NiVsw5gxEzRlBRzAFzThjAnEDFhS5UxASiiAoGzIhg4ntzCnrKvtPdMz0zPe92wV3ceyucOn9Vnf/8VbPoyxzvgVlz/Az7CdKDPASLoAe5B3kIPDAEU+x3cg/yEHhgCKbY7+Qe5CHwwNRNcS5gM+Bw4Dzg46kaut/Jk+9pfbwucBSwO/AlsGeXQV4YuADYGTgDeBj4d/L9NKNHEOT5YbYmcRWwYddB1sDngUWBJ4CDgB9nNARTZ/yCMwXkOW0n6/i9gY1id7l4U3k6FvK9wB8trIUqkOcGdgMOBrYtjPdFnJjPAi9ldtjnAcC+wCbx37vA5cCDwN/+1sfkEc/o4AsjBPn9LuA44JcWwE1dVIGc6q0VoK4ZPwj8YxV2pDZW2wt4r1i/B3nEGwsAVwBHh3MOBW5rEWC7qguyp8l1wP4x/jbACxW27Ao8CpwIXJPzpB7kEe8tD3gsbw58Gix41G5oAfC6IIvJufFx2APjZBlkwuLATUHuDgO+zSv2II94ZGPgmSCUjwDu5J8zZ50dmUUdvHX6SVksrwuy/Rtj74mBzgf8DMpidgJujp0vKf5f6UEecYmAXBneEcyLSpxqjFymDsLAT8D7ifhEmyYgu+hej3ZlCyaZsSxwK/ARcBbwZw9yOULjiYE1sR5VrQnIqwc7VkR5Lnb2D9mgbtDjI40dU1ypu5OXA/YBtgY+jBimEGL71YBPgCezlTseR0xHm6JD34x5mra0XZqAvERwBFMpU6IyENcBHojc2908UJSqAnmeWEUeZZ77FwO/AubLqjcGest+YVSVY4oOrao71v/nRMozkT5S2x0jH/b7WEfjRMdaCLgaWL+G4pXqyg30twz7rYIBKmiGlJWBI6oEqbFAFsgz43N6pBh/FQZKRKQJG+0ayHl+fGQAPVFA8/bG8+2AE4BVgEsi5XGXFn2a2uUMW3LlSZmKoLvpFE5erjJ2EMju4FOAS4HrgVOB3wudzRf/SVgGsdGqsbvw/5LA3QHAN8AOwDtdMCyUrDvDlpPj5PRrSpncXKZaZYtk1BQGgezKcfKfDThais4pGtAR/9Q2Yz3gKUDOoWyoAPF97daTW3FT4LUYwp3vyflPpHfmzobIz+uYUAayE1bW2yp2s7E3D+pbAo/HANsDb9QZrIN1jGc3Zo6crfd2oKwBPASsHWmSR/0KsfmuDQ5U6wawDOSUiMui9wA+yCZs0FcAl76/GsTs6w44pakJie0KtCWPe037a7v+UsB9sdleDOXrGGDFprp6DnJx4h7Xdiq7KxaPEam7Oz4dI3VXf5eI16rA/cAGwGSmTuMFv8iwJWg3xMMDGffbTTrNQS5quGVymoqPaYarfjyrf7pAXgSYN6RK45qlmDop6ksuSxWjJg5tsW7OsO3auCwZriRbRTtykIsg5LmoKdVlgGTFxwODkvQW59lKV+aScgzfVwlkki/T1aIn1S4ld7WtDD7BTrwrTgz7lSCGXzXtc6ydXLxTVfozZzaNWiwI2R3AsVlq1XT8qahfpgO7YFPqJIkR/DYeBrQ9n8SwXYgyf1/jNC45yElJMUe2KF0q8UnAbg/HeM/qldxkCQeNJ1HRYGngljievU70MYBHtYvUrOCQqXxU13ByiWGrdqlJFLWK2l2VsWtZ3WkhfBvHfHJizDJn2yJSp986JhxUTXilcJKX6ypOPocVZBfsd1WNp/F/sTDFkx+N+367SrvO47fXWcayrgkH04hD94duAnJR5Rp059r9GQ+hhU1ALr6eqPPuaAjd2c0p1wXZegZ+H7t1UTjopnc7YlVdkJNmKvGSZctQx8X0OjLvoTKjCmRFDxmpKYdCicWczYfbXsn52Eym3ZcOe6AK5A6b3ptW1wM9yHU9NYPr/QfZ1S04D5lzZAAAAABJRU5ErkJggg==" width="60.5" height="20" /></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >MTH01 = L(1).A(s1(1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH12 = L(2).A(s1(2));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH23 = L(3).A(s1(3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH34 = L(4).A(s1(4));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH45 = L(5).A(s1(5));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH56 = L(6).A(s1(6));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH6T = Robot.tool;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH02 = MTH01*MTH12;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH03 = MTH02*MTH23;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH04 = MTH03*MTH34;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH05 = MTH04*MTH45;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH06 = MTH05*MTH56;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >MTH0T = MTH06*MTH6T;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J1 = [cross(MTH01(1:3,3),(MTH0T(1:3,4)-MTH01(1:3,4)));MTH01(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J2 = [cross(MTH02(1:3,3),(MTH0T(1:3,4)-MTH02(1:3,4)));MTH02(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J3 = [cross(MTH03(1:3,3),(MTH0T(1:3,4)-MTH03(1:3,4)));MTH03(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J4 = [cross(MTH04(1:3,3),(MTH0T(1:3,4)-MTH04(1:3,4)));MTH04(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J5 = [cross(MTH05(1:3,3),(MTH0T(1:3,4)-MTH05(1:3,4)));MTH05(1:3,3)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >J6 = [cross(MTH06(1:3,3),(MTH0T(1:3,4)-MTH06(1:3,4)));MTH06(1:3,3)];</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >J = [J1,J2,J3,J4,J5,J6]</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="86955D35" data-scroll-top="null" data-scroll-left="null" data-width="1246" data-testid="output_1" style="width: 1276px; opacity: 1; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1246px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">J = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">6×6</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:6,&quot;totalRows&quot;:6,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 398px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  300.0001   33.1866  245.2993  -32.8512    8.5738   -0.0000
+          300.0001  -37.3986 -276.4319  -56.8999   14.8503   -0.0000
+                 0  273.5109  332.6400   14.4181   78.1406    0.0000
+                 0   -0.7480   -0.7480    0.3787   -0.4884    0.8660
+                 0   -0.6637   -0.6637   -0.4267   -0.8459   -0.5000
+            1.0000    0.0000    0.0000   -0.8213    0.2143    0.0000
+        </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >V = [100;200;50;5;10;-5];</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >q_dot = J^-1*V</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="9A03BFD6" data-scroll-top="null" data-scroll-left="null" data-width="1246" data-testid="output_2" style="width: 1276px; opacity: 1; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1246px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">q_dot = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">6×1</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:6,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 68px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">    1.6889
+            6.6826
+           -1.4712
+            3.6648
+          -17.1642
+           -1.0074
+        </div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div></div></div></div>
+        <br>
+        <!-- 
+        ##### SOURCE BEGIN #####
+        %% 
+        % Considerando que para que el robot ejecute los movimientos, se desea establecer 
+        % una relación entre las velocidades del efector final y las articulaciones, En 
+        % un primer lugar con los valores numéricos de longitudes y desplazamientos de 
+        % los eslabones del robot asignado se obtuvo el Jacobiano como una matriz de valores 
+        % númericos:
+        % 
+        % Para obtener la matriz jacobiana de forma numérica se utilizaron las MTH que 
+        % representan al robot en la posición de home, donde todas las articulaciónes 
+        % tienen el valor de 0.
+        
+        MTH01 = L(1).A(0);
+        MTH12 = L(2).A(0);
+        MTH23 = L(3).A(0);
+        MTH34 = L(4).A(0);
+        MTH45 = L(5).A(0);
+        MTH56 = L(6).A(0);
+        MTH6T = Robot.tool;
+        MTH02 = MTH01*MTH12;
+        MTH03 = MTH02*MTH23;
+        MTH04 = MTH03*MTH34;
+        MTH05 = MTH04*MTH45;
+        MTH06 = MTH05*MTH56;
+        MTH0T = MTH06*MTH6T;
+        J1 = [cross(MTH01(1:3,3),(MTH0T(1:3,4)-MTH01(1:3,4)));MTH01(1:3,3)];
+        J2 = [cross(MTH02(1:3,3),(MTH0T(1:3,4)-MTH02(1:3,4)));MTH02(1:3,3)];
+        J3 = [cross(MTH03(1:3,3),(MTH0T(1:3,4)-MTH03(1:3,4)));MTH03(1:3,3)];
+        J4 = [cross(MTH04(1:3,3),(MTH0T(1:3,4)-MTH04(1:3,4)));MTH04(1:3,3)];
+        J5 = [cross(MTH05(1:3,3),(MTH0T(1:3,4)-MTH05(1:3,4)));MTH05(1:3,3)];
+        J6 = [cross(MTH06(1:3,3),(MTH0T(1:3,4)-MTH06(1:3,4)));MTH06(1:3,3)];
+        J = [J1,J2,J3,J4,J5,J6]
+        %% 
+        % Utilizando la primera postura propuesta en la sección de cinemática inversa 
+        % se procede a calcular el jacobiano con los valores articulares encontrados. 
+        % Posteriormente, se hallan las velocidades articulares a partir de las velocidades 
+        % lineales y angulares propuestas así:
+        % 
+        % $$\dot{q} =J^{-1} V$$
+        
+        MTH01 = L(1).A(s1(1));
+        MTH12 = L(2).A(s1(2));
+        MTH23 = L(3).A(s1(3));
+        MTH34 = L(4).A(s1(4));
+        MTH45 = L(5).A(s1(5));
+        MTH56 = L(6).A(s1(6));
+        MTH6T = Robot.tool;
+        MTH02 = MTH01*MTH12;
+        MTH03 = MTH02*MTH23;
+        MTH04 = MTH03*MTH34;
+        MTH05 = MTH04*MTH45;
+        MTH06 = MTH05*MTH56;
+        MTH0T = MTH06*MTH6T;
+        J1 = [cross(MTH01(1:3,3),(MTH0T(1:3,4)-MTH01(1:3,4)));MTH01(1:3,3)];
+        J2 = [cross(MTH02(1:3,3),(MTH0T(1:3,4)-MTH02(1:3,4)));MTH02(1:3,3)];
+        J3 = [cross(MTH03(1:3,3),(MTH0T(1:3,4)-MTH03(1:3,4)));MTH03(1:3,3)];
+        J4 = [cross(MTH04(1:3,3),(MTH0T(1:3,4)-MTH04(1:3,4)));MTH04(1:3,3)];
+        J5 = [cross(MTH05(1:3,3),(MTH0T(1:3,4)-MTH05(1:3,4)));MTH05(1:3,3)];
+        J6 = [cross(MTH06(1:3,3),(MTH0T(1:3,4)-MTH06(1:3,4)));MTH06(1:3,3)];
+        J = [J1,J2,J3,J4,J5,J6]
+        V = [100;200;50;5;10;-5];
+        q_dot = J^-1*V
+        ##### SOURCE END #####
+        -->
+        </div></body>
     </div>
   </div>
 
-
-  <div class="section-title" data-aos="fade-up">
-    <h2>GUI</h2>
+    </div>
   </div>
-
-  <section class="service-details">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-          <div class="card">
-            <div class="card-img">
-              <h5 class="card-title"><a href="#">q1</a></h5>
-              <img src="assets/img/g1.jpeg" alt="...">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-          <div class="card">
-            <div class="card-img">
-              <h5 class="card-title"><a href="#">q2</a></h5>
-              <img src="assets/img/g2.jpeg" alt="...">
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-          <div class="card">
-            <div class="card-img">
-              <h5 class="card-title"><a href="#">q3</a></h5>
-              <img src="assets/img/g3.jpeg" alt="...">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-          <div class="card">
-            <div class="card-img">
-              <h5 class="card-title"><a href="#">q4</a></h5>
-              <img src="assets/img/g4.jpeg" alt="...">
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
   
   </main>
 
