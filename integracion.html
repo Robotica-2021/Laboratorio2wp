@@ -5,17 +5,17 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Robot Industrial</title>
+  <title>Integración</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/robotic-arm1.png" rel="icon">
-  <link href="assets/img/robotic-arm1.png" rel="icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,600,600i,700,700i|Barlow:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
-
+   <!-- Favicons -->
+   <link href="assets/img/robotic-arm1.png" rel="icon">
+   <link href="assets/img/robotic-arm1.png" rel="icon">
+ 
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,600,600i,700,700i|Barlow:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+ 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+  <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
@@ -44,7 +44,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="active" href="index.html">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="robotYruta.html">Robot y ruta</a></li>
           <li class="dropdown"><a href="#"><span>Modelos</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -53,8 +53,8 @@
               <li><a href="Inverso.html">Modelo Geométrico Inverso</a></li>
             </ul>
           </li>
-          <li><a href="diferencial.html">Modelo diferencial</a></li>
-          <li><a href="integracion.html">Integración</a></li>
+          <li><a   href="diferencial.html">Modelo diferencial</a></li>
+          <li><a class="active" href="integracion.html">Integración</a></li>
           <li><a href="asignatura.html">Asignatura</a></li>
           <li><a href="https://github.com/APM2021-1" class="github"><i class="bx bxl-github"></i></a></li>
         </ul>
@@ -64,42 +64,74 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero"  style="float:left;"   class="d-flex justify-cntent-center align-items-center">
-  </section><!-- End Hero -->
+  <main id="main">
+    <section class="breadcrumbs">
+    </section>
+    <div class="container" data-aos="fade-up"></div>
+    <div class="section-title" data-aos="fade-up">
+      <h1>Integración</h1>
+      <hr>
 
-  <section id="hero"  style="float:right; background: linear-gradient( rgb(0, 0, 0), rgb(0, 0, 0) )"  class="d-flex justify-cntent-center align-items-center">
-    <div id="heroCarousel2" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-      <!-- Slide 1 -->
-      <div class="carousel-item active" >
-        <div class="carousel-container" data-aos="fade-up">
-          
-          <h2 >Análisis y simulación de robot industrial </h2>
-          <p > Haciendo uso de la herramienta MATLAB para la simulación de robots se simulara el comportamiento del robot industrial “FANUC LR Mate 200iB 6-axis robot” teniendo en cuenta su características haciendo el uso de RVCtools de Peter Corke y Robotics System Toolbox de MATLAB, implementado una GUI para demostrar el funcionamiento de los modelos. </p>
-        </div>
-      </div>
 
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <div class="carousel-container" data-aos="fade-up" >
-         
 
-          <h2  >FANUC LR Mate 200iB</h2>
-          <p  > Es un robot de sobremesa de construcción modular y compacta de la línea FANUC. El robot 200iB está accionado por servo eléctrico y tiene un brazo de seis ejes con muchas capacidades de montaje diferentes, contando adicionalmente con la capacidad de voltearse hacia atrás para un espacio de trabajo más grande otorgando mayor flexibilidad. </p>
-          <p> Los beneficios adicionales incluyen velocidades de eje que pueden alcanzar hasta 480 grados / seg., Un efector final integrado en la muñeca, frenos a prueba de fallas en los ejes 2 y 3, y un paquete integral de válvulas solenoides montadas internamente.</p>
-        </div>
-      </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel2" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-      </a>
-      <a class="carousel-control-next" href="#heroCarousel2" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-      </a>
     </div>
-  </section><!-- End Hero -->
-  
+  </div>
 
+
+  <div class="section-title" data-aos="fade-up">
+    <h2>GUI</h2>
+  </div>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q1</a></h5>
+              <img src="assets/img/g1.jpeg" alt="...">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q2</a></h5>
+              <img src="assets/img/g2.jpeg" alt="...">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q3</a></h5>
+              <img src="assets/img/g3.jpeg" alt="...">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="card">
+            <div class="card-img">
+              <h5 class="card-title"><a href="#">q4</a></h5>
+              <img src="assets/img/g4.jpeg" alt="...">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  </main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+</footer>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
     class="bi bi-arrow-up-short"></i></a>
